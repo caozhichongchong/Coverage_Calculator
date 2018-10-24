@@ -23,7 +23,7 @@ module Coverage_Calculator {
         obj_name report_name;
         obj_addr report_addr;
     } CC_OutParams;
-    
+
     funcdef run_Coverage_Calculator(CC_InParams params)
         returns (CC_OutParams) authentication required;
 };
