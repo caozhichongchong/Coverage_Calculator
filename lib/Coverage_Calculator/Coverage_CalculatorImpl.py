@@ -120,7 +120,7 @@ class Coverage_Calculator:
         self.log(console, 'Running run_filter_contigs_by_length(): ')
         self.log(console, "\n" + pformat(params))
 
-        # Auth
+        # Auth, standard
         token = ctx['token']
         headers = {'Authorization': 'OAuth ' + token}
         env = os.environ.copy()
@@ -135,21 +135,21 @@ class Coverage_Calculator:
         except Exception as e:
             raise ValueError(
                 'Unable to instantiate wsClient with workspaceURL: ' + self.workspaceURL + ' ERROR: ' + str(e))
-        # setAPI_Client
+        # setAPI_Client, extract objects back
         try:
             # setAPI_Client = SetAPI (url=self.callbackURL, token=ctx['token'])  # for SDK local.  local doesn't work for SetAPI
-            setAPI_Client = SetAPI(url=self.serviceWizardURL, token=ctx['token'])  # for dynamic service
+            setAPI_Client = SetAPI(url=self.serviceWizardURL, token=ctx['token'])  # for dynamic service, doesn't need to run locally
         except Exception as e:
             raise ValueError(
                 'Unable to instantiate setAPI_Client with serviceWizardURL: ' + self.serviceWizardURL + ' ERROR: ' + str(
                     e))
-        # auClient
+        # auClient, read + write objects, need to be local
         try:
             auClient = AssemblyUtil(self.callbackURL, token=ctx['token'], service_ver=SERVICE_VER)
         except Exception as e:
             raise ValueError(
                 'Unable to instantiate auClient with callbackURL: ' + self.callbackURL + ' ERROR: ' + str(e))
-        # dfuClient
+        # dfuClient, read + write objects, need to be local
         try:
             dfuClient = DFUClient(self.callbackURL)
         except Exception as e:
@@ -174,7 +174,7 @@ class Coverage_Calculator:
         for input_ref in params['input_assembly_refs']:
             provenance[0]['input_ws_objects'].append(input_ref)
 
-        # set the output paths
+        # set the output paths, standard
         timestamp = int((datetime.utcnow() - datetime.utcfromtimestamp(0)).total_seconds() * 1000)
         output_dir = os.path.join(self.scratch, 'output.' + str(timestamp))
         if not os.path.exists(output_dir):
@@ -195,10 +195,10 @@ class Coverage_Calculator:
 
             for i, input_ref in enumerate(params['input_assembly_refs']):
 
-                # assembly obj info
+                # assembly obj info, deal with assembly type
                 try:
                     [OBJID_I, NAME_I, TYPE_I, SAVE_DATE_I, VERSION_I, SAVED_BY_I, WSID_I, WORKSPACE_I, CHSUM_I, SIZE_I,
-                     META_I] = range(11)  # object_info tuple
+                     META_I] = range(11)  # object_info tuple, same for all objects
                     input_obj_info = wsClient.get_object_info_new({'objects': [{'ref': input_ref}]})[0]
                     # print ("INPUT_OBJ_INFO")
                     # pprint(input_obj_info)  # DEBUG
@@ -231,7 +231,7 @@ class Coverage_Calculator:
                     except Exception as e:
                         raise ValueError('Unable to get object from workspace: (' + input_ref + ')' + str(e))
 
-                    for assembly_obj in assemblySet_obj['data']['items']:
+                    for assembly_obj in assemblySet_obj['data']['items']: #deal with assemblySet type
                         this_assembly_ref = assembly_obj['ref']
                         try:
                             assembly_seen = assembly_refs_seen[this_assembly_ref]
@@ -260,13 +260,13 @@ class Coverage_Calculator:
             # assembly_outdir = os.path.join (output_dir, 'score_assembly')
             # if not os.path.exists(assembly_outdir):
             #    os.makedirs(assembly_outdir)
-            score_assembly_file_paths = []
+            score_assembly_file_paths = [] #assembly files
 
             for ass_i, input_ref in enumerate(assembly_refs):
                 self.log(console, "\tAssembly: " + assembly_names[ass_i] + " (" + assembly_refs[ass_i] + ")")  # DEBUG
-                contig_file = auClient.get_assembly_as_fasta({'ref': assembly_refs[ass_i]}).get('path')
-                sys.stdout.flush()
-                contig_file_path = dfuClient.unpack_file({'file_path': contig_file})['file_path']
+                contig_file = auClient.get_assembly_as_fasta({'ref': assembly_refs[ass_i]}).get('path') #fasta file path
+                #sys.stdout.flush()
+                contig_file_path = dfuClient.unpack_file({'file_path': contig_file})['file_path'] #uncompressed file path
                 score_assembly_file_paths.append(contig_file_path)
                 # clean_ass_ref = assembly_ref.replace('/','_')
                 # assembly_outfile_path = os.join(assembly_outdir, clean_assembly_ref+".fna")
@@ -291,13 +291,13 @@ class Coverage_Calculator:
                 original_contig_count.append(0)
                 filtered_contig_count.append(0)
                 filtered_file_path = assembly_file_path + ".min_contig_length=" + str(
-                    params['min_contig_length']) + "bp"
+                    params['min_contig_length']) + "bp" #file output name
                 filtered_contig_file_paths.append(filtered_file_path)
                 with open(assembly_file_path, 'r', read_buf_size) as ass_handle, \
                         open(filtered_file_path, 'w', write_buf_size) as filt_handle:
                     seq_buf = ''
                     last_header = ''
-                    for fasta_line in ass_handle:
+                    for fasta_line in ass_handle: # Seq.IO as fasta
                         if fasta_line.startswith('>'):
                             if seq_buf != '':
                                 original_contig_count[ass_i] += 1
@@ -343,6 +343,7 @@ class Coverage_Calculator:
                     else:
                         output_obj_name = assembly_names[ass_i] + ".min_contig_length" + str(
                             params['min_contig_length']) + "bp"
+                    # save the objects!!!
                     output_data_ref = auClient.save_assembly_from_fasta({
                         'file': {'path': filtered_contig_file},
                         'workspace_name': params['workspace_name'],
@@ -350,7 +351,7 @@ class Coverage_Calculator:
                     })
                     filtered_contig_refs.append(output_data_ref)
                     filtered_contig_names.append(output_obj_name)
-            # save AssemblySet
+            # save AssemblySet, create a new AssemblySet
             if len(assembly_refs) > 1 and non_zero_output_seen:
                 items = []
                 for ass_i, filtered_contig_file in enumerate(filtered_contig_file_paths):
@@ -363,12 +364,12 @@ class Coverage_Calculator:
                                   # 'info'
                                   })
 
-                # load the method provenance from the context object
+                # IGNORE load the method provenance from the context object
                 self.log(console, "SETTING PROVENANCE")  # DEBUG
                 provenance = [{}]
                 if 'provenance' in ctx:
                     provenance = ctx['provenance']
-                # add additional info to provenance here, in this case the input data object reference
+                # IGNORE add additional info to provenance here, in this case the input data object reference
                 provenance[0]['input_ws_objects'] = []
                 for assRef in params['input_assembly_refs']:
                     provenance[0]['input_ws_objects'].append(assRef)
@@ -388,7 +389,7 @@ class Coverage_Calculator:
                     setAPI_Client.save_assembly_set_v1({'workspace_name': params['workspace_name'],
                                                         'output_object_name': output_assemblySet_name,
                                                         'data': output_assemblySet_obj
-                                                        })['set_ref']
+                                                        })['set_ref'] #workspace addr, save the assemblySet
                 except Exception as e:
                     raise ValueError('SetAPI FAILURE: Unable to save assembly set object to workspace: (' + params[
                         'workspace_name'] + ")\n" + str(e))
@@ -428,16 +429,17 @@ class Coverage_Calculator:
 
         # Save report
         print('Saving report')
-        kbr = KBaseReport(self.callbackURL)
+        kbr = KBaseReport(self.callbackURL) # run another kbase module locally, on the same node
         try:
+            # extended report recommended
             report_info = kbr.create_extended_report(
                 {'message': report_text,
-                 'objects_created': objects_created,
+                 'objects_created': objects_created, # primary data products
                  'direct_html_link_index': None,  # 0,
-                 'html_links': None,
-                 'file_links': None,
+                 'html_links': None, # a list of html links, files or dirs; 0 to return the first one
+                 'file_links': None, # secondary data products for download, files or dirs, (not recommended tar/gzip)
                  'report_object_name': 'kb_filter_contigs_by_length_report_' + str(uuid.uuid4()),
-                 'workspace_name': params['workspace_name']
+                 'workspace_name': params['workspace_name'] # to save the report as data object
                  })
         except _RepError as re:
             # not really any way to test this, all inputs have been checked earlier and should be
@@ -448,7 +450,7 @@ class Coverage_Calculator:
             raise
 
         # STEP 6: contruct the output to send back
-        returnVal = {'report_name': report_info['name'], 'report_ref': report_info['ref']}
+        returnVal = {'report_name': report_info['name'], 'report_addr': report_info['ref']}
 
         #END run_Coverage_Calculator
 

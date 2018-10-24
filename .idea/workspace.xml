@@ -34,14 +34,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="33" />
+          <entry key="py" value="776" />
           <entry key="spec" value="385" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="385" />
-          <entry key="Python" value="33" />
+          <entry key="Python" value="776" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -62,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/Coverage_Calculator/Coverage_CalculatorImpl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1978">
-              <caret line="451" lean-forward="true" selection-start-line="451" selection-end-line="451" />
+            <state relative-caret-position="116">
+              <caret line="452" column="84" selection-start-line="452" selection-start-column="84" selection-end-line="452" selection-end-column="84" />
               <folding>
                 <element signature="e#38#75#0" expanded="true" />
               </folding>
@@ -72,6 +72,12 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>.log</find>
+      <find>dfuClient</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -202,8 +208,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Coverage_Calculator/Coverage_CalculatorImpl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1978">
-          <caret line="451" lean-forward="true" selection-start-line="451" selection-end-line="451" />
+        <state relative-caret-position="116">
+          <caret line="452" column="84" selection-start-line="452" selection-start-column="84" selection-end-line="452" selection-end-column="84" />
           <folding>
             <element signature="e#38#75#0" expanded="true" />
           </folding>
