@@ -11,12 +11,12 @@ module Coverage_Calculator {
     typedef string obj_addr;
 
     typedef structure {
-        obj_addr assembly_addr;
-        obj_addr read_lib_addr;
+        list<obj_addr> input_assembly_refs;
+        list<obj_addr> input_readsLib_refs;
         int length_cutoff;
         float dist_depth_coverage_cutoff;
         float abs_depth_coverage_cutoff;
-        obj_name assembly_output_name;
+        obj_name output_assembly_name;
     } CC_InParams;
 
     typedef structure {

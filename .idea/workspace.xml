@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc5d443b-075f-44f4-8f62-e5fa6117fa35" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/Coverage_Calculator/Coverage_CalculatorImpl.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Coverage_Calculator/Coverage_CalculatorImpl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coverage_Calculator.spec" beforeDir="false" afterPath="$PROJECT_DIR$/Coverage_Calculator.spec" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,12 +35,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="py" value="776" />
-          <entry key="spec" value="385" />
+          <entry key="spec" value="427" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="385" />
+          <entry key="PLAIN_TEXT" value="427" />
           <entry key="Python" value="776" />
         </counts>
       </usages-collector>
@@ -50,20 +50,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Coverage_Calculator.spec">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="305">
+              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/Coverage_Calculator/Coverage_CalculatorImpl.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="116">
-              <caret line="452" column="84" selection-start-line="452" selection-start-column="84" selection-end-line="452" selection-end-column="84" />
+              <caret line="195" column="69" selection-start-line="195" selection-start-column="50" selection-end-line="195" selection-end-column="69" />
               <folding>
                 <element signature="e#38#75#0" expanded="true" />
               </folding>
@@ -85,8 +85,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Coverage_Calculator.spec" />
         <option value="$PROJECT_DIR$/lib/Coverage_Calculator/Coverage_CalculatorImpl.py" />
+        <option value="$PROJECT_DIR$/Coverage_Calculator.spec" />
       </list>
     </option>
   </component>
@@ -167,7 +167,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24959612" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24959612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
@@ -199,20 +199,20 @@
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Coverage_Calculator.spec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/Coverage_Calculator/Coverage_CalculatorImpl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
-          <caret line="452" column="84" selection-start-line="452" selection-start-column="84" selection-end-line="452" selection-end-column="84" />
+          <caret line="195" column="69" selection-start-line="195" selection-start-column="50" selection-end-line="195" selection-end-column="69" />
           <folding>
             <element signature="e#38#75#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coverage_Calculator.spec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
         </state>
       </provider>
     </entry>
