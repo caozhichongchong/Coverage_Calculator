@@ -2,6 +2,7 @@
 package us.kbase.coveragecalculator;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -19,56 +20,56 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("com.googlecode.jsonschema2pojo")
 @JsonPropertyOrder({
-    "assembly_addr",
-    "read_lib_addr",
+    "input_assembly_refs",
+    "input_readsLib_refs",
     "length_cutoff",
     "dist_depth_coverage_cutoff",
     "abs_depth_coverage_cutoff",
-    "assembly_output_name"
+    "output_assembly_name"
 })
 public class CCInParams {
 
-    @JsonProperty("assembly_addr")
-    private String assemblyAddr;
-    @JsonProperty("read_lib_addr")
-    private String readLibAddr;
+    @JsonProperty("input_assembly_refs")
+    private List<String> inputAssemblyRefs;
+    @JsonProperty("input_readsLib_refs")
+    private List<String> inputReadsLibRefs;
     @JsonProperty("length_cutoff")
     private Long lengthCutoff;
     @JsonProperty("dist_depth_coverage_cutoff")
     private Double distDepthCoverageCutoff;
     @JsonProperty("abs_depth_coverage_cutoff")
     private Double absDepthCoverageCutoff;
-    @JsonProperty("assembly_output_name")
-    private String assemblyOutputName;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    @JsonProperty("output_assembly_name")
+    private java.lang.String outputAssemblyName;
+    private Map<java.lang.String, Object> additionalProperties = new HashMap<java.lang.String, Object>();
 
-    @JsonProperty("assembly_addr")
-    public String getAssemblyAddr() {
-        return assemblyAddr;
+    @JsonProperty("input_assembly_refs")
+    public List<String> getInputAssemblyRefs() {
+        return inputAssemblyRefs;
     }
 
-    @JsonProperty("assembly_addr")
-    public void setAssemblyAddr(String assemblyAddr) {
-        this.assemblyAddr = assemblyAddr;
+    @JsonProperty("input_assembly_refs")
+    public void setInputAssemblyRefs(List<String> inputAssemblyRefs) {
+        this.inputAssemblyRefs = inputAssemblyRefs;
     }
 
-    public CCInParams withAssemblyAddr(String assemblyAddr) {
-        this.assemblyAddr = assemblyAddr;
+    public CCInParams withInputAssemblyRefs(List<String> inputAssemblyRefs) {
+        this.inputAssemblyRefs = inputAssemblyRefs;
         return this;
     }
 
-    @JsonProperty("read_lib_addr")
-    public String getReadLibAddr() {
-        return readLibAddr;
+    @JsonProperty("input_readsLib_refs")
+    public List<String> getInputReadsLibRefs() {
+        return inputReadsLibRefs;
     }
 
-    @JsonProperty("read_lib_addr")
-    public void setReadLibAddr(String readLibAddr) {
-        this.readLibAddr = readLibAddr;
+    @JsonProperty("input_readsLib_refs")
+    public void setInputReadsLibRefs(List<String> inputReadsLibRefs) {
+        this.inputReadsLibRefs = inputReadsLibRefs;
     }
 
-    public CCInParams withReadLibAddr(String readLibAddr) {
-        this.readLibAddr = readLibAddr;
+    public CCInParams withInputReadsLibRefs(List<String> inputReadsLibRefs) {
+        this.inputReadsLibRefs = inputReadsLibRefs;
         return this;
     }
 
@@ -117,34 +118,34 @@ public class CCInParams {
         return this;
     }
 
-    @JsonProperty("assembly_output_name")
-    public String getAssemblyOutputName() {
-        return assemblyOutputName;
+    @JsonProperty("output_assembly_name")
+    public java.lang.String getOutputAssemblyName() {
+        return outputAssemblyName;
     }
 
-    @JsonProperty("assembly_output_name")
-    public void setAssemblyOutputName(String assemblyOutputName) {
-        this.assemblyOutputName = assemblyOutputName;
+    @JsonProperty("output_assembly_name")
+    public void setOutputAssemblyName(java.lang.String outputAssemblyName) {
+        this.outputAssemblyName = outputAssemblyName;
     }
 
-    public CCInParams withAssemblyOutputName(String assemblyOutputName) {
-        this.assemblyOutputName = assemblyOutputName;
+    public CCInParams withOutputAssemblyName(java.lang.String outputAssemblyName) {
+        this.outputAssemblyName = outputAssemblyName;
         return this;
     }
 
     @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
+    public Map<java.lang.String, Object> getAdditionalProperties() {
         return this.additionalProperties;
     }
 
     @JsonAnySetter
-    public void setAdditionalProperties(String name, Object value) {
+    public void setAdditionalProperties(java.lang.String name, Object value) {
         this.additionalProperties.put(name, value);
     }
 
     @Override
-    public String toString() {
-        return ((((((((((((((("CCInParams"+" [assemblyAddr=")+ assemblyAddr)+", readLibAddr=")+ readLibAddr)+", lengthCutoff=")+ lengthCutoff)+", distDepthCoverageCutoff=")+ distDepthCoverageCutoff)+", absDepthCoverageCutoff=")+ absDepthCoverageCutoff)+", assemblyOutputName=")+ assemblyOutputName)+", additionalProperties=")+ additionalProperties)+"]");
+    public java.lang.String toString() {
+        return ((((((((((((((("CCInParams"+" [inputAssemblyRefs=")+ inputAssemblyRefs)+", inputReadsLibRefs=")+ inputReadsLibRefs)+", lengthCutoff=")+ lengthCutoff)+", distDepthCoverageCutoff=")+ distDepthCoverageCutoff)+", absDepthCoverageCutoff=")+ absDepthCoverageCutoff)+", outputAssemblyName=")+ outputAssemblyName)+", additionalProperties=")+ additionalProperties)+"]");
     }
 
 }

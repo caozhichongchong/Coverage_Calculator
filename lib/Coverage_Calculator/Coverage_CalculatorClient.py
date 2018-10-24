@@ -36,11 +36,11 @@ class Coverage_Calculator(object):
     def run_Coverage_Calculator(self, params, context=None):
         """
         :param params: instance of type "CC_InParams" -> structure: parameter
-           "assembly_addr" of type "obj_addr", parameter "read_lib_addr" of
-           type "obj_addr", parameter "length_cutoff" of Long, parameter
-           "dist_depth_coverage_cutoff" of Double, parameter
-           "abs_depth_coverage_cutoff" of Double, parameter
-           "assembly_output_name" of type "obj_name" (Insert your typespec
+           "input_assembly_refs" of list of type "obj_addr", parameter
+           "input_readsLib_refs" of list of type "obj_addr", parameter
+           "length_cutoff" of Long, parameter "dist_depth_coverage_cutoff" of
+           Double, parameter "abs_depth_coverage_cutoff" of Double, parameter
+           "output_assembly_name" of type "obj_name" (Insert your typespec
            information here.)
         :returns: instance of type "CC_OutParams" -> structure: parameter
            "report_name" of type "obj_name" (Insert your typespec information

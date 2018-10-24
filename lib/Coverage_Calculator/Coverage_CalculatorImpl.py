@@ -51,7 +51,7 @@ class Coverage_Calculator:
     ######################################### noqa
     VERSION = "0.0.1"
     GIT_URL = "https://github.com/caozhichongchong/Coverage_Calculator.git"
-    GIT_COMMIT_HASH = "d5368fe19ad834aed1a9ac02d1fc7a3691778856"
+    GIT_COMMIT_HASH = "0a6c98c970963cd0a8c89ad1e60cdfd0080f36fe"
 
     #BEGIN_CLASS_HEADER
     workspaceURL = None
@@ -96,11 +96,11 @@ class Coverage_Calculator:
     def run_Coverage_Calculator(self, ctx, params):
         """
         :param params: instance of type "CC_InParams" -> structure: parameter
-           "assembly_addr" of type "obj_addr", parameter "read_lib_addr" of
-           type "obj_addr", parameter "length_cutoff" of Long, parameter
-           "dist_depth_coverage_cutoff" of Double, parameter
-           "abs_depth_coverage_cutoff" of Double, parameter
-           "assembly_output_name" of type "obj_name" (Insert your typespec
+           "input_assembly_refs" of list of type "obj_addr", parameter
+           "input_readsLib_refs" of list of type "obj_addr", parameter
+           "length_cutoff" of Long, parameter "dist_depth_coverage_cutoff" of
+           Double, parameter "abs_depth_coverage_cutoff" of Double, parameter
+           "output_assembly_name" of type "obj_name" (Insert your typespec
            information here.)
         :returns: instance of type "CC_OutParams" -> structure: parameter
            "report_name" of type "obj_name" (Insert your typespec information

@@ -122,12 +122,12 @@ sub new
 $params is a Coverage_Calculator.CC_InParams
 $return is a Coverage_Calculator.CC_OutParams
 CC_InParams is a reference to a hash where the following keys are defined:
-	assembly_addr has a value which is a Coverage_Calculator.obj_addr
-	read_lib_addr has a value which is a Coverage_Calculator.obj_addr
+	input_assembly_refs has a value which is a reference to a list where each element is a Coverage_Calculator.obj_addr
+	input_readsLib_refs has a value which is a reference to a list where each element is a Coverage_Calculator.obj_addr
 	length_cutoff has a value which is an int
 	dist_depth_coverage_cutoff has a value which is a float
 	abs_depth_coverage_cutoff has a value which is a float
-	assembly_output_name has a value which is a Coverage_Calculator.obj_name
+	output_assembly_name has a value which is a Coverage_Calculator.obj_name
 obj_addr is a string
 obj_name is a string
 CC_OutParams is a reference to a hash where the following keys are defined:
@@ -143,12 +143,12 @@ CC_OutParams is a reference to a hash where the following keys are defined:
 $params is a Coverage_Calculator.CC_InParams
 $return is a Coverage_Calculator.CC_OutParams
 CC_InParams is a reference to a hash where the following keys are defined:
-	assembly_addr has a value which is a Coverage_Calculator.obj_addr
-	read_lib_addr has a value which is a Coverage_Calculator.obj_addr
+	input_assembly_refs has a value which is a reference to a list where each element is a Coverage_Calculator.obj_addr
+	input_readsLib_refs has a value which is a reference to a list where each element is a Coverage_Calculator.obj_addr
 	length_cutoff has a value which is an int
 	dist_depth_coverage_cutoff has a value which is a float
 	abs_depth_coverage_cutoff has a value which is a float
-	assembly_output_name has a value which is a Coverage_Calculator.obj_name
+	output_assembly_name has a value which is a Coverage_Calculator.obj_name
 obj_addr is a string
 obj_name is a string
 CC_OutParams is a reference to a hash where the following keys are defined:
@@ -370,12 +370,12 @@ a string
 
 <pre>
 a reference to a hash where the following keys are defined:
-assembly_addr has a value which is a Coverage_Calculator.obj_addr
-read_lib_addr has a value which is a Coverage_Calculator.obj_addr
+input_assembly_refs has a value which is a reference to a list where each element is a Coverage_Calculator.obj_addr
+input_readsLib_refs has a value which is a reference to a list where each element is a Coverage_Calculator.obj_addr
 length_cutoff has a value which is an int
 dist_depth_coverage_cutoff has a value which is a float
 abs_depth_coverage_cutoff has a value which is a float
-assembly_output_name has a value which is a Coverage_Calculator.obj_name
+output_assembly_name has a value which is a Coverage_Calculator.obj_name
 
 </pre>
 
@@ -384,12 +384,12 @@ assembly_output_name has a value which is a Coverage_Calculator.obj_name
 =begin text
 
 a reference to a hash where the following keys are defined:
-assembly_addr has a value which is a Coverage_Calculator.obj_addr
-read_lib_addr has a value which is a Coverage_Calculator.obj_addr
+input_assembly_refs has a value which is a reference to a list where each element is a Coverage_Calculator.obj_addr
+input_readsLib_refs has a value which is a reference to a list where each element is a Coverage_Calculator.obj_addr
 length_cutoff has a value which is an int
 dist_depth_coverage_cutoff has a value which is a float
 abs_depth_coverage_cutoff has a value which is a float
-assembly_output_name has a value which is a Coverage_Calculator.obj_name
+output_assembly_name has a value which is a Coverage_Calculator.obj_name
 
 
 =end text
